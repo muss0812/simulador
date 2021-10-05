@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Importación de Bootstap 4.6-->
+    <!--Hoja de estilos-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--Script JS-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!--Fin de Bootstap 4.6-->
+    <!--Importación de Libreria JS Chart.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Simulador</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 align="center">Solución ejercicio dado 6 Caras</h1>
+        <h2 align="center" >Por: Junior González y Alejandra Rodríguez</h2>
+        <!---Boton que utiliza la función "window.location.href=window.location.href" para refrescar la pagina y así 
+        Poder generar nuevos datos en el Script
+        -->
+        <button onClick="window.location.href=window.location.href" class="btn btn-outline-success btn-block">Lanzar Dado</button>
+        <br>
+            <table class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Dado</th>
+                        <th></th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                    </tr>   
+               
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Frecuencia Absoluta</th>
+                        <td scope="row"></td>
+                        <script>
+                                    /*Se crean las Variable que van a guardar el resultado*/
+                                    var contadorCara1 = contadorCara2 = contadorCara3 = contadorCara4 = contadorCara5 = contadorCara6 = 0;
+                                    /*Se crea una variable que cuenta la cantidad de veces que se tira el dado
+                                    Y se inicializa en 0
+                                    */
+                                    var totalLanzamientos =0;
+                                    /*Ciclo for que ejecuta se ejecuta 10000 veces y va desde 0 hasta 99999*/
+                                    for(i=0; i < 10000; i++){
+                                        /* Variable que guarda el número generado aleatoriamente*/
+                                        lanzar = parseInt(Math.random()*(6)+1);
+                                        /*Inicio de bloque de condicionales*/
+                                        /*Primer if que valida si cayó en el número 1*/
+                                        if (lanzar==1){
+                                            /*Si se cumple aumenta el contador del número 1*/
+                                            contadorCara1++;
+                                        }
+                                        else if (lanzar==2){/*else if que valida si cayó en el número 2*/
+                                            /*Si se cumple aumenta el contador del número 2*/
+                                            contadorCara2++;
+                                        }
+                                        else if (lanzar==3){/*else if que valida si cayó en el número 3*/
+                                            /*Si se cumple aumenta el contador del número 3*/
+                                            contadorCara3++;
+                                        }
+                                        else if (lanzar==4){/*else if que valida si cayó en el número 4*/
+                                            contadorCara4++;/*else if que valida si cayó en el número 4*/
+                                        }
+                                        else if (lanzar==5){/*else if que valida si cayó en el número 5*/
+                                            contadorCara5++;/*else if que valida si cayó en el número 5*/
+                                        }
+                                        else if (lanzar==6){/*else if que valida si cayó en el número 6*/
+                                            contadorCara6++;/*else if que valida si cayó en el número 6*/
+                                        }
+                                        else {
+                                            /*Si ningun condicional anterior se cumple se genera error*/
+                                            document.write('ERROR: la cara del dado no existe!!');
+                                        }
+                                    }
+                                    
+                                    /*Sumatoria del total*/
+                                    totalLanzamientos = contadorCara1+contadorCara2+contadorCara3+contadorCara4+contadorCara5+contadorCara6;
+                                            
+                                            document.write('<td>'+contadorCara1+'</td>')
+                                            document.write('<td>'+contadorCara2+'</td>')
+                                            document.write('<td>'+contadorCara3+'</td>')
+                                            document.write('<td>'+contadorCara4+'</td>')
+                                            document.write('<td>'+contadorCara5+'</td>')
+                                            document.write('<td>'+contadorCara6+'</td>')
+                                            document.write('</tr>')
+                                            document.write('<tr>')
+                                      
+                                    /*Inicio de calculo de XXXXXXX*/
+                                    var F1 = F2 = F3 = F4 = F5 = F6 = 0;
+
+                                    F1 = contadorCara1;
+                                    F2 = contadorCara1 + contadorCara2;
+                                    F3 = F2 + contadorCara3;
+                                    F4 = F3 + contadorCara4;
+                                    F5 = F4 + contadorCara5;
+                                    F6 = F5 + contadorCara6;
+                                    document.write('<th>Frecuencia Acomulada</th>')
+                                    document.write('<td></td>')
+                                    document.write('<td>'+F1+'</td>')
+                                    document.write('<td>'+F2+'</td>')
+                                    document.write('<td>'+F3+'</td>')
+                                    document.write('<td>'+F4+'</td>')
+                                    document.write('<td>'+F5+'</td>')
+                                    document.write('<td>'+F6+'</td>')
+                                    document.write('</tr>')
+                                    document.write('<tr>')
+                                    /*FIN de calculo de }frecuencia Acomulada*/
+                                    document.write('<th>Frecuencia Relativa</th>')
+                                    /*Inicio de calculo de Frecuencia relativa*/
+                                    var Fr1 = Fr2 = Fr3 = Fr4 = Fr5 = Fr6 = 0.0;
+                                    Fr1 = contadorCara1/10000;
+                                    Fr2 = contadorCara2/10000;
+                                    Fr3 = contadorCara3/10000;
+                                    Fr4 = contadorCara4/10000;
+                                    Fr5 = contadorCara5/10000;
+                                    Fr6 = contadorCara6/10000;
+                                    document.write('<td></td>')
+                                    document.write('<td>'+Fr1+'</td>')
+                                    document.write('<td>'+Fr2+'</td>')
+                                    document.write('<td>'+Fr3+'</td>')
+                                    document.write('<td>'+Fr4+'</td>')
+                                    document.write('<td>'+Fr5+'</td>')
+                                    document.write('<td>'+Fr6+'</td>')
+                        </script>
+                    </tr>
+                    </tr>
+                </tbody>
+            </table>
+            <script>
+                document.write('<br>')
+                document.write('<h3>Total de lanzamientos del dado: ' + totalLanzamientos + '</h3>');
+            </script>
+			<div style="width:55%">
+            <canvas id="myChart" ></canvas>
+			</div>
+            <script>
+            /*Creación de la Grafica de Barras según ejemplo de la documentación oficial de la libreria*/
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Uno', 'Dos', 'Tres', 'Cuatro', 'Cinco', 'Seis'],
+                    datasets: [{
+                        label: 'Lanzamientos de un dado 10000',
+                        data: [contadorCara1, contadorCara2, contadorCara3, contadorCara4, contadorCara5, contadorCara6],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+						
+                    }]
+                },
+                options: {
+
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+            </script>
+    </div>
+</body>
+</html>
